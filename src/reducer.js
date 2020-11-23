@@ -18,6 +18,7 @@ export const initialState = {
       default:
         return state;
     }
+    
   };
   
   export default reducer;

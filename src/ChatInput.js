@@ -16,7 +16,7 @@ function ChatInput({ channelName, channelId }) {
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         user: user.displayName,
-        userImage: user.photoURL,
+        userimage: user.photoURL,
       });
     }
 
