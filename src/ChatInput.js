@@ -4,7 +4,7 @@ import "./ChatInput.css";
 import { useStateValue } from "./StateProvider";
 import firebase from "firebase";
 
-function ChatInput({ channelName, channelId }) {
+function ChatInput({ channelName, channelId, chatRef }) {
   const [input, setInput] = useState("");
   const [{ user }] = useStateValue();
 
@@ -19,6 +19,7 @@ function ChatInput({ channelName, channelId }) {
         userimage: user.photoURL,
       });
     }
+    chatRef.current.scrollIntoView({behavior: "smooth",});
 
     setInput("");
   };

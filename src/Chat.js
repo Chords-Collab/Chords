@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './Chat.css';
 import { useParams } from "react-router-dom";
 import StarBorderOutlinedIcon from "@material-ui/icons/StarBorderOutlined";
@@ -8,6 +8,7 @@ import Message from "./Message";
 import ChatInput from "./ChatInput";
 
 function Chat() {
+    const chatRef = useRef(null);
     const { roomId } = useParams();
     const [roomDetails, setRoomDetails] = useState(null);
     const [roomMessages, setRoomMessages] = useState([]);
@@ -27,9 +28,11 @@ function Chat() {
             setRoomMessages(snapshot.docs.map((doc) => doc.data()))
           );
 
-        
-            
-      }, [roomId]);
+        }, [roomId]);
+
+      useEffect(()=>{
+        chatRef?.current?.scrollIntoView({behavior: "smooth",});
+      });
 
 
       console.log(roomDetails);
@@ -61,9 +64,16 @@ function Chat() {
             userimage={userimage}
           />
         ))}
+        
+        
       </div>
-      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
+      <div className="chat_bottom" ref={chatRef}></div>
+      <ChatInput
+      chatRef={chatRef}
+       channelName={roomDetails?.name} channelId={roomId} />
+        
         </div>
+        
         
     )
 }

@@ -15,12 +15,19 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { Modal } from './Modal';
+import styled from 'styled-components';
+import Channel from "./Channel";
 
 
 function Sidebar() {
 
     const [channels, setChannels] = useState([]);
     const [{ user }] = useStateValue();
+    const [showModal, setShowModal] = useState(false);
+    const openModal = () => {
+      setShowModal(prev => !prev);
+    };
     
   
     useEffect(() => {
@@ -34,16 +41,28 @@ function Sidebar() {
       );
     }, []);
 
+    const deleteChannel = (event) => {
+      db.collection('rooms').doc(event.currentTarget.id)
+          .delete()
+          .then(() => console.log('Channel successfully deleted!'))
+          .catch(err => console.log(err));
+  }
+
 
 
     return (
         <div className='sidebar'>
             <div className='sidebar__header'>
                 <div className='sidebar__info'>
-                <h2>CHORDS</h2>
+                <h1>CHORDS</h1>
                 <h3>
-                    <FiberManualRecordIcon />
+                  <FiberManualRecordIcon />
+                    <div onClick={openModal}>
+                      <h2>
                     {user?.displayName}
+                    </h2>
+                    </div>
+                    <Modal showModal={showModal} setShowModal={setShowModal} />
                 </h3>
                 </div>
                 <BorderColorIcon /> 
@@ -66,7 +85,11 @@ function Sidebar() {
      {/* Connect to dB and list all the channels */}
       {/* <SidebarOption ... /> */}
       {channels.map((channel) => (
-        <SideOption title={channel.name} id={channel.id} />
+        <Channel
+        key={channel.id}
+        title={channel.name} 
+        id={channel.id}
+        deleteChannel={deleteChannel} />
       ))}
         </div>
     )

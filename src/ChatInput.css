@@ -17,6 +17,7 @@
     padding: 20px;
     border-width: 3px;
     border-color: black;
+    background-color: rgb(223, 218, 171);
   }
   
   .chatInput > form > button {
