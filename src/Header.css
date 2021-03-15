@@ -51,8 +51,14 @@ background-color:#49631e ;
     margin-right:20px;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-
-
+.results_div {
+    display: block;
+}
 
 

@@ -1,0 +1,8 @@
+.SearchResult{
+    display: flex;
+    border-top: 1px solid #49274b;
+    max-width: 400px;
+    color:#2B490C;
+    font-size: large;
+    font-weight: bold;
+}
