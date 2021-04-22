@@ -3,6 +3,7 @@ import db from "./firebase";
 import "./ChatInput.css";
 import { useStateValue } from "./StateProvider";
 import firebase from "firebase";
+ 
 
 function ChatInput({ channelName, channelId, chatRef }) {
   const [input, setInput] = useState("");
@@ -24,18 +25,22 @@ function ChatInput({ channelName, channelId, chatRef }) {
     setInput("");
   };
 
+ 
   return (
     <div className="chatInput">
       <form>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={`Message #${channelName?.toLowerCase()}`}
-        />
-        <button type="submit" onClick={sendMessage}>
-          send
-        </button>
+        <div className="chatFields">
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={`Message #${channelName?.toLowerCase()}`}/>
+        </div>       
+        <button className="send" type="submit" onClick={sendMessage}>
+          Send
+        </button>      
       </form>
+     
+      
     </div>
   );
 }

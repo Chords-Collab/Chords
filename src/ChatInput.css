@@ -4,23 +4,23 @@
   
   .chatInput > form {
     position: relative;
-    display: flex;
-    justify-content: center;
   }
-  
-  .chatInput > form > input {
-    position: fixed;
-    bottom: 30px;
-    width: 70%;
+
+  .chatInput > form > div > input {
+    width: 100em;
+    margin-left: 1%;
+    height: 60px;
     border: 1px solid gray;
     border-radius: 3px;
-    padding: 20px;
     border-width: 3px;
     border-color: black;
     background-color: rgb(223, 218, 171);
   }
-  
-  .chatInput > form > button {
+
+button.send {
     display: none !important;
   }
+
+
   
+ 

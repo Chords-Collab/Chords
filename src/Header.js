@@ -69,7 +69,7 @@ function Header() {
         />
                 <AccessTimeIcon />
             </div>
-            <form onSubmit = {searchGroups} className='header__search'>
+             <form onSubmit = {searchGroups} className='header__search'>
                  <SearchIcon onClick = {searchGroups}/>
                 <input placeholder="Search Group Name" 
                     onChange={(e) => setInput(e.target.value)}/>

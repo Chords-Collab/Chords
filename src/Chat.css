@@ -36,8 +36,34 @@
     margin-right: 5px !important;
     font-size: 16px;
   }
-  
+
+.chat_bottom_container{
+  display:flex;
+  position: fixed;
+  top: 90%;
+}
 .chat_bottom
   {
-    padding-bottom: 200px;
+    flex: 1;
+    margin-bottom: auto;
   }
+
+.attachButton{
+  flex: 2;
+  margin-left: 1%;
+  height:65px;
+  border: none;
+}
+
+button{
+  background-color: wheat;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.attachModalDiv{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
