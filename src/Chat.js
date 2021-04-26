@@ -116,6 +116,12 @@ function Chat() {
                 </div>
                 <div className='chat__headerRight'> 
                   <button onClick={listAllFiles}>Files</button>
+		  <div className='chat__headerRight'>
+                    <p>
+                    <a href="https://pace.zoom.us/my/chords" class="button">Join Meeting</a>
+                    </p>
+                </div>
+
                   <Modal
                     isOpen={filesModalIsOpen}
                     onRequestClose={filesCloseModal}
